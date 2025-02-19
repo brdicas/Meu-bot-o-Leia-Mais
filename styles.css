@@ -1,0 +1,57 @@
+<style>
+.texto-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 60px; /* Adiciona espaço abaixo dos elementos para o botão */
+}
+
+.texto {
+    position: relative;
+}
+
+.texto * {
+    display: none; /* Esconde todos os elementos inicialmente */
+}
+
+.texto *:nth-child(-n+3) {
+    display: block; /* Exibe apenas os primeiros três elementos */
+}
+
+.overlay-container {
+    position: relative;
+    width: 100%;
+}
+
+.gradient-overlay {
+    position: absolute;
+    bottom: 0; /* Ajuste conforme necessário */
+    left: 0;
+    right: 0;
+    height: 100px; /* Ajuste conforme necessário */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    pointer-events: none;
+    z-index: 1; /* Garante que o degradê fique sobre os elementos */
+}
+
+.read-more-btn {
+    position: absolute;
+    left: 50%;
+    bottom: 60px; /* Ajuste a posição inferior conforme necessário */
+    transform: translateX(-50%);
+    background-color: #000; /* Fundo com opacidade */
+    color: #fff;
+    border: none;
+    padding: 12px 30px; /* Aumentando o tamanho e as laterais */
+    cursor: pointer;
+    z-index: 2; /* Garante que o botão fique sobre o degradê */
+    opacity: 0.9;
+    border-radius: 10px; /* Bordas arredondadas */
+    font-size: 16px; /* Ajuste de tamanho da fonte */
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.read-more-btn:hover {
+    opacity: 1;
+    transform: scale(1.05); /* Leve aumento no hover */
+}
+</style>
