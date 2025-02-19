@@ -1,19 +1,15 @@
-
-.texto-wrapper {
+<style>
+.read-more-container {
     position: relative;
     overflow: hidden;
     padding-bottom: 60px; /* Adiciona espaço abaixo dos elementos para o botão */
 }
 
-.texto {
-    position: relative;
-}
-
-.texto * {
+.read-more-container > * {
     display: none; /* Esconde todos os elementos inicialmente */
 }
 
-.texto *:nth-child(-n+3) {
+.read-more-container > *:nth-child(-n+3) {
     display: block; /* Exibe apenas os primeiros três elementos */
 }
 
@@ -54,4 +50,5 @@
     opacity: 1;
     transform: scale(1.05); /* Leve aumento no hover */
 }
+</style>
 
