@@ -1,4 +1,4 @@
-<script>
+
 document.addEventListener('DOMContentLoaded', function() {
     if (window.innerWidth <= 768) { // Verifica se a largura da tela é de um dispositivo móvel
         const contentWrapper = document.querySelector('.texto');
@@ -38,4 +38,4 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.read-more-btn').style.display = 'none';
     }
 });
-</script>
+
