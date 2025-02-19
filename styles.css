@@ -1,4 +1,4 @@
-<style>
+
 .texto-wrapper {
     position: relative;
     overflow: hidden;
@@ -54,4 +54,4 @@
     opacity: 1;
     transform: scale(1.05); /* Leve aumento no hover */
 }
-</style>
+
