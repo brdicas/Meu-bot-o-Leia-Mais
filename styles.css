@@ -16,9 +16,18 @@
     max-height: 1000px; /* Altura máxima ao expandir (ajuste conforme necessário) */
 }
 
-.gradient-overlay {
+.overlay-container {
     position: absolute;
     bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center; /* Centraliza o botão horizontalmente */
+    z-index: 2; /* Garante que o botão e o gradiente fiquem acima do conteúdo */
+}
+
+.gradient-overlay {
+    position: absolute;
+    bottom: 40px; /* Ajuste para posicionar o gradiente acima do botão */
     left: 0;
     right: 0;
     height: 100px; /* Altura do gradiente */
@@ -33,10 +42,7 @@
 }
 
 .read-more-btn {
-    position: absolute;
-    left: 50%;
-    bottom: 60px; /* Ajuste a posição inferior conforme necessário */
-    transform: translateX(-50%);
+    position: relative;
     background-color: #000; /* Fundo com opacidade */
     color: #fff;
     border: none;
