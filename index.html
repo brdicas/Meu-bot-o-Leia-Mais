@@ -1,20 +1,64 @@
 
-<link rel="stylesheet" type="text/css" href="styles.css">
+<!--<link rel="stylesheet" type="text/css" href="styles.css">
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botão Leia Mais</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
 
-<div class="texto-wrapper">
-    <div class="texto-expansivel">
-        <p>Parágrafo 1 suushsuajs siajshansiwn jaja suwjahue wshuabe whwubs</p>
-        <div>Elemento 1ususjsuwj ahwibahauwb suauabusbw suahs hauwb</div>
-        <p>Parágrafo 2ususjwhw wuwjwbsbis wnais suja whajw suw wujw wheb </p>
-        <div>Elemento 2uauwjs suabauanbajw wuan wwu</div>
-        <p>Parágrafo 3jsjshauajahhaajja ajajjaa auwhba suah sjaba aha suana auab aua aj</p>
-        <div>Elemento uwjab suab ajaba ahaba haba auaba uababua w a3</div>
-        <p>elemento 4</p>
-        <!-- Continue com outros elementos... -->
-    </div>
+        .conteudo .item {
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
 
-    <div class="overlay-container">
-        <button class="read-more-btn">Leia Mais</button>
-        <div class="gradient-overlay"></div>
+        .oculto {
+            display: none;
+        }
+
+        #leiaMaisBtn {
+            background-color: #4CAF50; /* Verde */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        #leiaMaisBtn:hover {
+            background-color: #45a049; /* Verde mais escuro ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <div class="conteudo">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+        <div class="item oculto">Item 4</div>
+        <div class="item oculto">Item 5</div>
+        <div class="item oculto">Item 6</div>
     </div>
-</div>
+    <button id="leiaMaisBtn">Leia Mais</button>
+
+    <script>
+        document.getElementById('leiaMaisBtn').addEventListener('click', function() {
+            var itensOcultos = document.querySelectorAll('.oculto');
+            itensOcultos.forEach(function(item) {
+                item.style.display = 'block';
+            });
+
+            // Esconde o botão após clicar
+            this.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
