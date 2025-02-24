@@ -1,15 +1,19 @@
 <style>
-.read-more-container {
+.texto-wrapper {
     position: relative;
     overflow: hidden;
     padding-bottom: 60px; /* Adiciona espaço abaixo dos elementos para o botão */
 }
 
-.read-more-container > * {
+.texto-expansivel {
+    position: relative;
+}
+
+.texto-expansivel * {
     display: none; /* Esconde todos os elementos inicialmente */
 }
 
-.read-more-container > *:nth-child(-n+3) {
+.texto-expansivel *:nth-child(-n+3) {
     display: block; /* Exibe apenas os primeiros três elementos */
 }
 
