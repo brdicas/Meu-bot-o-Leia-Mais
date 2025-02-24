@@ -3,12 +3,8 @@
             font-family: Arial, sans-serif;
         }
 
-        .conteudo .item {
-            padding: 10px;
-            border: 1px solid #ccc;
-            margin-bottom: 10px;
-        }
-
+        
+      
         .oculto {
             display: none;
         }
@@ -22,6 +18,7 @@
             cursor: pointer;
             border-radius: 5px;
             transition: background-color 0.3s ease;
+            margin-top: 10px;
         }
 
         #leiaMaisBtn:hover {
