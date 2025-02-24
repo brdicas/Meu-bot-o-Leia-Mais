@@ -1,64 +1,118 @@
 
 <!--<link rel="stylesheet" type="text/css" href="styles.css">
 -->
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Botão Leia Mais</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
+<div class="texto texto-expansivel">
+    <p>Parágrafo 1 suushsuajs siajshansiwn jaja suwjahue wshuabe whwubs</p>
+    <div>Elemento 1ususjsuwj ahwibahauwb suauabusbw suahs hauwb</div>
+    <p>Parágrafo 2ususjwhw wuwjwbsbis wnais suja whajw suw wujw wheb </p>
+    <div>Elemento 2uauwjs suabauanbajw wuan wwu</div>
+    <p>Parágrafo 3jsjshauajahhaajja ajajjaa auwhba suah sjaba aha suana auab aua aj</p>
+    <div>Elemento uwjab suab ajaba ahaba haba auaba uababua w a3</div>
+    <p> elemento 4</p>
+    <!-- Continue com outros elementos... -->
+</div>
+
+<div class="overlay-container">
+    <button class="read-more-btn">Leia Mais</button>
+    <div class="gradient-overlay"></div>
+</div>
+
+<style>
+.texto-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 60px; /* Adiciona espaço abaixo dos elementos para o botão */
+}
+
+.texto-expansivel {
+    position: relative;
+}
+
+.texto-expansivel * {
+    display: none; /* Esconde todos os elementos inicialmente */
+}
+
+.texto-expansivel *:nth-child(-n+3) {
+    display: block; /* Exibe apenas os primeiros três elementos */
+}
+
+.overlay-container {
+    position: relative;
+    width: 100%;
+}
+
+.gradient-overlay {
+    position: absolute;
+    bottom: 0; /* Ajuste conforme necessário */
+    left: 0;
+    right: 0;
+    height: 100px; /* Ajuste conforme necessário */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    pointer-events: none;
+    z-index: 1; /* Garante que o degradê fique sobre os elementos */
+}
+
+.read-more-btn {
+    position: absolute;
+    left: 50%;
+    bottom: 60px; /* Ajuste a posição inferior conforme necessário */
+    transform: translateX(-50%);
+    background-color: #000; /* Fundo com opacidade */
+    color: #fff;
+    border: none;
+    padding: 12px 30px; /* Aumentando o tamanho e as laterais */
+    cursor: pointer;
+    z-index: 2; /* Garante que o botão fique sobre o degradê */
+    opacity: 0.9;
+    border-radius: 10px; /* Bordas arredondadas */
+    font-size: 16px; /* Ajuste de tamanho da fonte */
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.read-more-btn:hover {
+    opacity: 1;
+    transform: scale(1.05); /* Leve aumento no hover */
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.innerWidth <= 768) { // Verifica se a largura da tela é de um dispositivo móvel
+        const contentWrapper = document.querySelector('.texto-expansivel');
+        const elements = contentWrapper.children;
+
+        // Exibir os três primeiros elementos e ocultar o restante
+        for (let i = 0; i < elements.length; i++) {
+            if (i < 6) {
+                elements[i].style.display = 'block'; // Mostrar os três primeiros
+            } else {
+                elements[i].style.display = 'none'; // Ocultar o restante
+            }
         }
 
-        .conteudo .item {
-            padding: 10px;
-            border: 1px solid #ccc;
-            margin-bottom: 10px;
-        }
+        // Adicionar o botão "Leia Mais" logo acima do terceiro elemento
+        const readMoreBtn = document.querySelector('.read-more-btn');
+        contentWrapper.insertBefore(readMoreBtn, elements[2]);
 
-        .oculto {
-            display: none;
-        }
-
-        #leiaMaisBtn {
-            background-color: #4CAF50; /* Verde */
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        #leiaMaisBtn:hover {
-            background-color: #45a049; /* Verde mais escuro ao passar o mouse */
-        }
-    </style>
-</head>
-<body>
-    <div class="conteudo">
-        <div class="item">Item 1</div>
-        <div class="item">Item 2</div>
-        <div class="item">Item 3</div>
-        <div class="item oculto">Item 4</div>
-        <div class="item oculto">Item 5</div>
-        <div class="item oculto">Item 6</div>
-    </div>
-    <button id="leiaMaisBtn">Leia Mais</button>
-
-    <script>
-        document.getElementById('leiaMaisBtn').addEventListener('click', function() {
-            var itensOcultos = document.querySelectorAll('.oculto');
-            itensOcultos.forEach(function(item) {
-                item.style.display = 'block';
-            });
-
-            // Esconde o botão após clicar
+        // Adicionar o comportamento do botão "Leia Mais"
+        readMoreBtn.addEventListener('click', function() {
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].style.display = 'block'; // Mostrar todos os elementos ao clicar
+            }
+            document.querySelector('.gradient-overlay').style.display = 'none';
             this.style.display = 'none';
         });
-    </script>
-</body>
-</html>
+    } else {
+        // Exibe todo o conteúdo e esconde o botão e o gradiente em telas maiores (computadores)
+        const contentWrapper = document.querySelector('.texto-expansivel');
+        const elements = contentWrapper.children;
+
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].style.display = 'block'; // Mostrar todos os elementos
+        }
+        
+        document.querySelector('.gradient-overlay').style.display = 'none';
+        document.querySelector('.read-more-btn').style.display = 'none';
+    }
+});
+</script>
