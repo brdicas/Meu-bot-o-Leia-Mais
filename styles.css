@@ -51,7 +51,7 @@
 }
 
 .read-more-btn:hover {
-    opacity: 1;
+    opacity: 99999999999999999999999999;
     transform: scale(1.05); /* Leve aumento no hover */
 }
 </style>
