@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Exibir os três primeiros elementos e ocultar o restante
         for (let i = 0; i < elements.length; i++) {
-            if (i < 3) {
+            if (i < 5) {
                 elements[i].style.display = 'block'; // Mostrar os três primeiros
             } else {
                 elements[i].style.display = 'none'; // Ocultar o restante
